@@ -14,6 +14,7 @@ import {
 const initialState = fromJS({
   launches: [],
   launchpads: [],
+  availableYears: [],
   loading: false,
 });
 
@@ -26,7 +27,8 @@ function spaceMissionsReducer(state = initialState, action) {
       return state
         .set('loading', false)
         .set('launches', fromJS(action.launches))
-        .set('launchpads', fromJS(action.launchpads));
+        .set('launchpads', fromJS(action.launchpads))
+        .set('availableYears', fromJS(action.availableYears));
 
     case REQUEST_DATA_ERROR:
       return state.set('loading', false);

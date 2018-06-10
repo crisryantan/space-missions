@@ -27,6 +27,7 @@ import {
   makeSelectLoading,
   makeSelectLaunches,
   makeSelectLaunchPads,
+  makeSelectAvailableYears,
 } from './selectors';
 import './SpaceMissions.scss';
 
@@ -63,6 +64,7 @@ const mapStateToProps = createStructuredSelector({
   loading: makeSelectLoading(),
   launches: makeSelectLaunches(),
   launchpads: makeSelectLaunchPads(),
+  availableYears: makeSelectAvailableYears(),
 });
 
 const withConnect = connect(

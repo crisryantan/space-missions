@@ -18,9 +18,15 @@ const makeSelectLaunchPads = () =>
     substate.get('launchpads').toJS()
   );
 
+const makeSelectAvailableYears = () =>
+  createSelector(selectSpaceMissions, (substate) =>
+    substate.get('availableYears').toJS()
+  );
+
 export {
   selectSpaceMissions,
   makeSelectLoading,
   makeSelectLaunches,
   makeSelectLaunchPads,
+  makeSelectAvailableYears,
 };
