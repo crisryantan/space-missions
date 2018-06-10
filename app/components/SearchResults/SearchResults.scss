@@ -1,0 +1,84 @@
+@import 'components/variables.scss';
+
+.search-results {
+  background-color: $white;
+}
+
+.search-count {
+  text-align: center;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+.result,
+.loading-view {
+  min-height: 140px;
+  border-bottom: 2px solid #ececec;
+  padding: 10px 30px;
+}
+
+.loading-view {
+  padding-top: 50px;
+  text-align: center;
+}
+
+.mission-image {
+  float: left;
+}
+
+.mission-image > img {
+  width: 80%;
+  height: 80%;
+}
+
+.rocket-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.launch-date {
+  font-family: Lato;
+  font-size: 14px;
+  line-height: 24px;
+  color: $text-gray;
+}
+
+.link-btn-group {
+  margin-top: 20px;
+}
+
+.link-btn {
+  margin: 10px 10px 0px 0px;
+}
+
+.flight-number {
+  float: right;
+  text-align: right;
+}
+
+.flight-number > div {
+  font-size: 24px;
+}
+
+.flight-number-text {
+  color: $text-gray;
+  font-size: 14px;
+}
+
+.flight-number-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .flight-number {
+    text-align: center;
+  }
+
+  .flight-number-web {
+    display: none;
+  }
+
+  .flight-number-mobile {
+    display: initial;
+  }
+}

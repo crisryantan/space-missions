@@ -13,6 +13,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import moment from 'moment';
 import { createStructuredSelector } from 'reselect';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
@@ -20,6 +21,7 @@ import injectReducer from 'utils/injectReducer';
 // Imported components
 import Header from 'components/Header';
 import SearchFilters from 'containers/SearchFilters';
+import SearchResults from 'components/SearchResults';
 
 import { requestPageData } from './actions';
 import reducer from './reducer';
@@ -54,9 +56,45 @@ export class SpaceMissions extends React.PureComponent {
     this.setState({ filters });
   };
 
+  filterLaunches = (launches) => {
+    const { keywords, launchPad, minYear, maxYear } = this.state.filters;
+    let filteredLaunches = launches;
+    if (keywords) {
+      filteredLaunches = filteredLaunches.filter(
+        (launch) =>
+          launch.flight_number === parseInt(keywords, 10) ||
+          launch.rocket.rocket_name.includes(keywords) ||
+          launch.payloads[0].payload_id.includes(keywords)
+      );
+    }
+
+    if (launchPad !== 'Any') {
+      filteredLaunches = filteredLaunches.filter(
+        (launch) => launch.launch_site.site_id === launchPad
+      );
+    }
+
+    if (minYear !== 'Any' && minYear !== 'Any') {
+      filteredLaunches = filteredLaunches.filter((launch) => {
+        const launchDate = parseInt(
+          moment(launch.launch_date_local).format('YYYY'),
+          10
+        );
+
+        return (
+          launchDate >= parseInt(minYear, 10) &&
+          launchDate <= parseInt(maxYear, 10)
+        );
+      });
+    }
+
+    return filteredLaunches;
+  };
+
   render() {
-    const { launchpads, availableYears } = this.props;
+    const { launches, loading, launchpads, availableYears } = this.props;
     const { filters } = this.state;
+    const filteredLaunches = this.filterLaunches(launches);
 
     return (
       <div>
@@ -68,7 +106,7 @@ export class SpaceMissions extends React.PureComponent {
             availableYears={availableYears}
             applyFilters={this.applyFilters}
           />
-          <div> Search Results component here..</div>
+          <SearchResults launches={filteredLaunches} loading={loading} />
         </div>
       </div>
     );
@@ -77,6 +115,8 @@ export class SpaceMissions extends React.PureComponent {
 
 SpaceMissions.propTypes = {
   requestData: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
+  launches: PropTypes.array.isRequired,
   launchpads: PropTypes.array.isRequired,
   availableYears: PropTypes.array.isRequired,
 };
