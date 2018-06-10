@@ -1,21 +1,25 @@
 import { createSelector } from 'reselect';
 
 /**
- * Direct selector to the homepage state domain
+ * Direct selector to the spacemissions state domain
  */
-const selectHomepage = (state) => state.get('homepage');
+const selectSpaceMissions = (state) => state.get('spacemissions');
 
 const makeSelectLoading = () =>
-  createSelector(selectHomepage, (substate) => substate.get('loading'));
+  createSelector(selectSpaceMissions, (substate) => substate.get('loading'));
 
 const makeSelectLaunches = () =>
-  createSelector(selectHomepage, (substate) => substate.get('launches').toJS());
+  createSelector(selectSpaceMissions, (substate) =>
+    substate.get('launches').toJS()
+  );
 
 const makeSelectLaunchPads = () =>
-  createSelector(selectHomepage, (substate) => substate.get('launchpads').toJS());
+  createSelector(selectSpaceMissions, (substate) =>
+    substate.get('launchpads').toJS()
+  );
 
 export {
-  selectHomepage,
+  selectSpaceMissions,
   makeSelectLoading,
   makeSelectLaunches,
   makeSelectLaunchPads,
