@@ -10,13 +10,18 @@
  */
 
 import React from 'react';
+import './SpaceMissions.scss';
 
 // eslint-disable-next-line react/prefer-stateless-function
 export default class SpaceMissions extends React.PureComponent {
   render() {
     return (
       <h1>
-        <div>Test</div>
+        <div>Header component here..</div>
+        <div className="wrapper">
+          <div>Search Filters component here..</div>
+          <div> Search Results component here..</div>
+        </div>
       </h1>
     );
   }
