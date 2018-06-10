@@ -1,4 +1,6 @@
+@import 'components/variables.scss';
+
 .wrapper {
-  background-color: #eaedf1;
+  background-color: $gray;
   padding: 40px 55px;
 }
