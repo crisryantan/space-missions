@@ -1,5 +1,5 @@
 /*
- * HomePage
+ * SpaceMissions
  *
  * This is the first thing users see of our App, at the '/' route
  *
@@ -12,7 +12,7 @@
 import React from 'react';
 
 // eslint-disable-next-line react/prefer-stateless-function
-export default class HomePage extends React.PureComponent {
+export default class SpaceMissions extends React.PureComponent {
   render() {
     return (
       <h1>
