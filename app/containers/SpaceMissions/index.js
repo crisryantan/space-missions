@@ -19,6 +19,7 @@ import injectReducer from 'utils/injectReducer';
 
 // Imported components
 import Header from 'components/Header';
+import SearchFilters from 'containers/SearchFilters';
 
 import { requestPageData } from './actions';
 import reducer from './reducer';
@@ -38,11 +39,15 @@ export class SpaceMissions extends React.PureComponent {
   }
 
   render() {
+    const { launchpads, availableYears } = this.props;
     return (
       <div>
         <Header />
         <div className="wrapper">
-          <div>Search Filters component here..</div>
+          <SearchFilters
+            launchpads={launchpads}
+            availableYears={availableYears}
+          />
           <div> Search Results component here..</div>
         </div>
       </div>
@@ -52,6 +57,8 @@ export class SpaceMissions extends React.PureComponent {
 
 SpaceMissions.propTypes = {
   requestData: PropTypes.func.isRequired,
+  launchpads: PropTypes.array.isRequired,
+  availableYears: PropTypes.array.isRequired,
 };
 
 export function mapDispatchToProps(dispatch) {

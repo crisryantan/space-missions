@@ -1,0 +1,34 @@
+@import 'components/variables.scss';
+
+.search-filters {
+  background-color: $white;
+  border: 1px solid $border-gray;
+  padding: 18px 30px;
+  margin: 0 !important;
+}
+
+.filter {
+  width: 100%;
+}
+
+.filter-title,
+.apply-btn-div {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.apply-btn {
+  background-color: $teal;
+  color: $white;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .apply-btn-div {
+    display: none;
+  }
+
+  .filter-wrapper {
+    margin-bottom: 10px;
+  }
+}

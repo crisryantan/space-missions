@@ -10,11 +10,12 @@ export function requestPageData() {
   };
 }
 
-export function requestPageDataSuccess(launches, launchpads) {
+export function requestPageDataSuccess(launches, launchpads, availableYears) {
   return {
     type: REQUEST_DATA_SUCCESS,
     launches,
     launchpads,
+    availableYears,
   };
 }
 
