@@ -34,19 +34,39 @@ import './SpaceMissions.scss';
 
 // eslint-disable-next-line react/prefer-stateless-function
 export class SpaceMissions extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      filters: {
+        keywords: '',
+        launchPad: 'Any',
+        minYear: 'Any',
+        maxYear: 'Any',
+      },
+    };
+  }
+
   componentWillMount() {
     this.props.requestData();
   }
 
+  applyFilters = (filters) => {
+    this.setState({ filters });
+  };
+
   render() {
     const { launchpads, availableYears } = this.props;
+    const { filters } = this.state;
+
     return (
       <div>
         <Header />
         <div className="wrapper">
           <SearchFilters
+            filters={filters}
             launchpads={launchpads}
             availableYears={availableYears}
+            applyFilters={this.applyFilters}
           />
           <div> Search Results component here..</div>
         </div>
