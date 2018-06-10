@@ -1,5 +1,6 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import moment from 'moment';
+import { message } from 'antd';
 import { getRequest } from 'utils/request';
 
 import { REQUEST_DATA } from './constants';
@@ -19,6 +20,7 @@ export function* requestPageData() {
 
     yield put(requestPageDataSuccess(launches, launchpads, availableYears));
   } catch (error) {
+    message.error('Something went wrong, please try again.');
     yield put(requestPageDataError(error));
   }
 }
