@@ -16,7 +16,9 @@ import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import './SpaceMissions.scss';
+
+// Imported components
+import Header from 'components/Header';
 
 import { requestPageData } from './actions';
 import reducer from './reducer';
@@ -26,6 +28,7 @@ import {
   makeSelectLaunches,
   makeSelectLaunchPads,
 } from './selectors';
+import './SpaceMissions.scss';
 
 // eslint-disable-next-line react/prefer-stateless-function
 export class SpaceMissions extends React.PureComponent {
@@ -35,13 +38,13 @@ export class SpaceMissions extends React.PureComponent {
 
   render() {
     return (
-      <h1>
-        <div>Header component here..</div>
+      <div>
+        <Header />
         <div className="wrapper">
           <div>Search Filters component here..</div>
           <div> Search Results component here..</div>
         </div>
-      </h1>
+      </div>
     );
   }
 }
