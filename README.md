@@ -1,5 +1,9 @@
 # Welcome to the Deloitte front-end engineering exercise
 
+to run the project, `npm install` for both `react-project` and `server` folders and enter `npm run start` for both projects on command line
+
+# Welcome to the Deloitte front-end engineering exercise
+
 In this exercise you will create a small single page application that displays (and filters) launch information.
 We perform these exercises to get a feel for how you approach challenging problems.
 
