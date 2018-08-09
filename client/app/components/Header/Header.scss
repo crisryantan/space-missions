@@ -1,0 +1,45 @@
+@import 'components/variables.scss';
+
+.header {
+  background: url('./space-photo.jpg') no-repeat;
+  background-size: 100% 100%;
+  color: $white;
+  height: 550px;
+  padding: 20px;
+}
+
+.space-savvy {
+  font-size: 18px;
+}
+
+.discover-space-missions {
+  font-size: 48px;
+  text-align: center;
+  padding-top: 10%;
+}
+
+.dropdown-img {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.dropdown-img img {
+  height: 24px;
+  width: 36px;
+}
+
+@media (max-width: 992px) {
+  .header {
+    height: 400px;
+  }
+
+  .discover-space-missions {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 300px;
+  }
+}
