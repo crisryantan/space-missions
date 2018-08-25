@@ -70,7 +70,3 @@
   ├── configureStore.js
   └── app.js
   ```
-
-# project references
-	https://demo3110248.mockable.io/products
-	http://i.imgur.com/LUGxYF6.png
